@@ -1,5 +1,5 @@
 def find_tuples_with_two_numbers(tuples, a, b, c,d,e,f,g,h):
-for t in tuples:
+ for t in tuples:
     count = 0
     if a in t:
          count += 1

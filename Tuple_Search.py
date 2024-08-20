@@ -1,5 +1,7 @@
 def find_tuples_with_two_numbers(tuples, a, b, c,d,e,f,g,h):
+ Num  = 0 ;
  for t in tuples:
+   
     count = 0
     if a in t:
          count += 1
@@ -21,7 +23,7 @@ def find_tuples_with_two_numbers(tuples, a, b, c,d,e,f,g,h):
             count +=1   
 
     if g != None:      
-        if h in t :
+        if g in t :
             count +=1   
 
     if h != None:      
@@ -29,7 +31,9 @@ def find_tuples_with_two_numbers(tuples, a, b, c,d,e,f,g,h):
             count +=1   
                    
     if count >= 2:
+        print(Num)
         print(t)
+    Num += 1 
 
 tuples = [(0, 2), (0, 1), (1, 2), (1, 5), (2, 5), (0, 6), (2, 6), (1, 3), (3, 5), (0, 4), (4, 6), (2, 9),
  (5, 9), (6, 9), (3, 8), (5, 8), (4, 7), (6, 7), (7, 11), (10, 11), (8, 10), (1, 10), (0, 11), (14, 17), 
@@ -37,4 +41,6 @@ tuples = [(0, 2), (0, 1), (1, 2), (1, 5), (2, 5), (0, 6), (2, 6), (1, 3), (3, 5)
  (25, 27), (25, 26), (26, 27)] 
 #find_tuples_with_two_numbers(tuples, 0,1,2,None)
 
-find_tuples_with_two_numbers(tuples, 0,1,2,6,None,None,None,None)
+#find_tuples_with_two_numbers(tuples, 0,1,2,6,None,None,None,None)
+
+find_tuples_with_two_numbers(tuples, 6,9,5,8,10,11,7,None)

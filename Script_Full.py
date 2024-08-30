@@ -58,3 +58,33 @@ for edge in obj.data.edges:
 bpy.context.scene.render.use_freestyle = True
 bpy.context.scene.view_layers["View Layer"].freestyle_settings.linesets.new(name="LineSet")
 bpy.context.scene.view_layers["View Layer"].freestyle_settings.linesets["LineSet"].select_edge_mark = True
+
+
+//********************************************_____استخراج___******************
+import bpy
+import bmesh
+
+# انتخاب آبجکت فعال
+obj = bpy.context.active_object
+
+# وارد حالت ویرایش شوید
+bpy.ops.object.mode_set(mode='EDIT')
+
+# ایجاد یک BMesh از مش آبجکت
+bm = bmesh.from_edit_mesh(obj.data)
+
+# استخراج نقاط
+vertices = [v.co for v in bm.verts]
+print("Vertices:", vertices)
+
+# استخراج لبه‌ها
+edges = [(e.verts[0].co, e.verts[1].co) for e in bm.edges]
+print("Edges:", edges)
+
+# استخراج سطوح
+faces = [[v.co for v in f.verts] for f in bm.faces]
+print("Faces:", faces)
+
+# بازگشت به حالت آبجکت
+bpy.ops.object.mode_set(mode='OBJECT')
+

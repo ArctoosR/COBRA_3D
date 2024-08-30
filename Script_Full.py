@@ -88,3 +88,32 @@ print("Faces:", faces)
 # بازگشت به حالت آبجکت
 bpy.ops.object.mode_set(mode='OBJECT')
 
+//********************************************************************************************************
+
+    import bpy
+import bmesh
+
+# انتخاب آبجکت فعال
+obj = bpy.context.active_object
+
+# وارد حالت ویرایش شوید
+bpy.ops.object.mode_set(mode='EDIT')
+
+# ایجاد یک BMesh از مش آبجکت
+bm = bmesh.from_edit_mesh(obj.data)
+print("vertices:\n")
+# استخراج نقاط
+vertices = [v.co for v in bm.verts]
+print( vertices)
+print("edges:\n")
+# استخراج لبه‌ها
+edges = [(e.verts[0].co, e.verts[1].co) for e in bm.edges]
+print( edges)
+print("faces:\n")
+# استخراج سطوح
+faces = [[v.co for v in f.verts] for f in bm.faces]
+print( faces)
+
+# بازگشت به حالت آبجکت
+bpy.ops.object.mode_set(mode='OBJECT')
+

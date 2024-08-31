@@ -7,8 +7,8 @@ obj = bpy.context.active_object
 if obj and obj.type == 'MESH':
     mesh = obj.data
 
-    # استخراج نقاط (vertices)
-    vertices = [tuple(vertex.co) for vertex in mesh.vertices]
+    # استخراج نقاط (vertices) و محدود کردن به دو رقم اعشار
+    vertices = [tuple(round(coord, 2) for coord in vertex.co) for vertex in mesh.vertices]
 
     # استخراج لبه‌ها (edges)
     edges = [tuple(edge.vertices) for edge in mesh.edges]

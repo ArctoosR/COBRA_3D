@@ -1,0 +1,24 @@
+import bpy
+
+# فرض می‌کنیم که یک آبجکت انتخاب شده است
+obj = bpy.context.active_object
+
+# بررسی می‌کنیم که آبجکت یک مش باشد
+if obj and obj.type == 'MESH':
+    mesh = obj.data
+
+    # استخراج نقاط (vertices)
+    vertices = [tuple(vertex.co) for vertex in mesh.vertices]
+
+    # استخراج لبه‌ها (edges)
+    edges = [tuple(edge.vertices) for edge in mesh.edges]
+
+    # استخراج وجه‌ها (faces)
+    faces = [tuple(face.vertices) for face in mesh.polygons]
+
+    # چاپ آرایه‌ها
+    print("Vertices:", vertices)
+    print("Edges:", edges)
+    print("Faces:", faces)
+else:
+    print("لطفاً یک آبجکت مش انتخاب کنید.")
